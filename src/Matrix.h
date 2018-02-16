@@ -11,16 +11,19 @@ class Matrix
 public:
     Matrix();
 
-    void set_cell(unsigned int x, unsigned int y, double val);
-    double get_cell(unsigned int x, unsigned int y);
+    double& at(unsigned int x, unsigned int y);
+    const double& at(unsigned int x, unsigned int y) const;
 
+    Matrix<W, H> operator+(const Matrix<W, H>& rhs) const;
 
 private:
 
-    std::size_t to_single_coordinate(unsigned int x, unsigned int y);
+    std::size_t to_single_coordinate(unsigned int x, unsigned int y) const;
 
     std::vector<double> buff_;
-
-    unsigned int width_ = W;
-    unsigned int height_ = H;
 };
+
+template<unsigned int W1_, unsigned int H1_, unsigned int W2_, unsigned int H2_>
+Matrix<H1_, W2_> operator* (const Matrix<W1_, H1_>& mat1, const Matrix<W2_, H2_>& mat2);
+
+#include "Matrix.hxx"

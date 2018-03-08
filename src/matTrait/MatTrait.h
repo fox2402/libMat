@@ -12,11 +12,12 @@ public:
     MatTrait(T& value);
     T nullValue();
     T identityValue();
-    MatTrait<T> operator+(MatTrait& rhs);
-    MatTrait<T> operator-(MatTrait& rhs);
-    MatTrait<T> operator*(MatTrait& rhs);
-    MatTrait<T> operator/(MatTrait& rhs);
+    MatTrait<T> operator+(MatTrait& rhs) const;
+    MatTrait<T> operator-(MatTrait& rhs) const;
+    MatTrait<T> operator*(MatTrait& rhs) const;
+    MatTrait<T> operator/(MatTrait& rhs) const;
     T& getValue();
+    const T& getValue() const;
 
 
 private:

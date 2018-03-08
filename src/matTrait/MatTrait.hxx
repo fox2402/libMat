@@ -25,31 +25,43 @@ MatTrait<T>::MatTrait(T& value)
 {}
 
 template <typename T>
-MatTrait<T> MatTrait<T>::operator+(MatTrait &rhs)
+MatTrait<T> MatTrait<T>::operator+(MatTrait &rhs) const
 {
     MatTrait<T> retVal(getValue() + rhs.getValue());
     return retVal;
 }
 
 template <typename T>
-MatTrait<T> MatTrait<T>::operator-(MatTrait &rhs)
+MatTrait<T> MatTrait<T>::operator-(MatTrait &rhs) const
 {
     MatTrait<T> retVal(getValue() - rhs.getValue());
     return retVal;
 }
 
 template <typename T>
-MatTrait<T> MatTrait<T>::operator*(MatTrait &rhs)
+MatTrait<T> MatTrait<T>::operator*(MatTrait &rhs) const
 {
     MatTrait<T> retVal(getValue() * rhs.getValue());
     return retVal;
 }
 
 template <typename T>
-MatTrait<T> MatTrait<T>::operator/(MatTrait &rhs)
+MatTrait<T> MatTrait<T>::operator/(MatTrait &rhs) const
 {
     MatTrait<T> retVal(getValue() / rhs.getValue());
     return retVal;
+}
+
+template <typename T>
+const T& MatTrait<T>::getValue() const
+{
+    return val_;
+}
+
+template <typename T>
+T& MatTrait<T>::getValue()
+{
+    return val_;
 }
 
 template<>

@@ -11,7 +11,7 @@ class MatTrait
 public:
     MatTrait(T& value);
     T nullValue();
-    T oneValue();
+    T identityValue();
     MatTrait<T> operator+(MatTrait& rhs);
     MatTrait<T> operator-(MatTrait& rhs);
     MatTrait<T> operator*(MatTrait& rhs);

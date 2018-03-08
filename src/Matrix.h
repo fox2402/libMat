@@ -15,8 +15,10 @@ public:
     T& at(unsigned int x, unsigned int y);
     const T& at(unsigned int x, unsigned int y) const;
     bool is_identity();
+    Matrix<T, H, W> transpose() const;
 
 
+    Matrix<T, W, H> operator*(const Mat_trait<T>& val) const;
     Matrix<T, W, H> operator+(const Matrix<T, W, H>& rhs) const;
 
 private:

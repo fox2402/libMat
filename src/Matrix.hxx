@@ -8,7 +8,23 @@ template<typename T,unsigned int W, unsigned int H>
 Matrix::Matrix<T, W, H>()
 {
     for (std::size_t i = 0; i < W * H; i++)
-        buff_.push_back(0);
+        buff_.push_back(Mat_trait<T>::null_value());
+}
+
+template<typename T,unsigned int W, unsigned int H>
+bool Matrix::is_identity()
+{
+    for (std::size_t i = 0; i < W; i++)
+    {
+        for (std::size_t j = 0; j < H; j++)
+        {
+            if (i == j && at(i, j) != Mat_trait<T>::identity_value())
+                return false;
+            if (i != j && at(i, j) != Mat_trait<T>::null_value())
+                return false;
+        }
+    }
+    return true;
 }
 
 template<typename T,unsigned int W, unsigned int H>
@@ -18,13 +34,13 @@ std::size_t Matrix<T, W, H>::to_single_coordinate(unsigned int x, unsigned int y
 }
 
 template<typename T,unsigned int W, unsigned int H>
-double& Matrix<T, W, H>::at(unsigned int x, unsigned int y)
+T& Matrix<T, W, H>::at(unsigned int x, unsigned int y)
 {
     return buff_.at(to_single_coordinate(x, y));
 }
 
 template<typename T,unsigned int W, unsigned int H>
-const double& Matrix<T, W, H>::at(unsigned int x, unsigned int y) const
+const T& Matrix<T, W, H>::at(unsigned int x, unsigned int y) const
 {
     return buff_.at(to_single_coordinate(x, y));
 }
@@ -47,7 +63,7 @@ Matrix<T, H1_, W2_> operator*(const Matrix<T, W1_, H1_> &mat1, const Matrix<T, W
     {
         throw std::invalid_argument("Dimensions of matrix doesn't allow multiplications");
     }
-    Matrix<H1_, W2_> product;
+    Matrix<T, H1_, W2_> product;
     for (std::size_t i = 0; i < H1_; i++)
     {
         for (std::size_t j = 0; j < W2_; j++)

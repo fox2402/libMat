@@ -3,6 +3,7 @@
 //
 #include <vector>
 #include "matTrait/Mat_trait.h"
+#include "matTrait/Numeric_trait.h"
 
 #pragma once
 
@@ -18,13 +19,13 @@ public:
     Matrix<T, H, W> transpose() const;
 
 
-    Matrix<T, W, H> operator*(const Mat_trait<T>& val) const;
+    Matrix<T, W, H> operator*(Numeric_trait<T>::const_ref val) const;
     Matrix<T, W, H> operator+(const Matrix<T, W, H>& rhs) const;
 
 private:
 
     std::size_t to_single_coordinate(unsigned int x, unsigned int y) const;
-    std::vector<Mat_trait<T>> buff_;
+    std::vector<Numeric_trait<T>::type> buff_;
 };
 
 template<typename T, unsigned int W1_, unsigned int H1_, unsigned int W2_, unsigned int H2_>

@@ -18,9 +18,9 @@ bool Matrix::is_identity()
     {
         for (std::size_t j = 0; j < H; j++)
         {
-            if (i == j && at(i, j) != Mat_trait<T>::identity_value())
+            if (i == j && at(i, j) != Numeric_trait<T>::identity_val())
                 return false;
-            if (i != j && at(i, j) != Mat_trait<T>::null_value())
+            if (i != j && at(i, j) != Numeric_trait<T>::null_val())
                 return false;
         }
     }
@@ -94,7 +94,7 @@ Matrix<T, H, W> Matrix<T, W, H>::transpose() const
 }
 
 template<typename T, unsigned int W, unsigned int H>
-Matrix<T, W, H> Matrix<T, W, H>::operator*(const Mat_trait<T>& val) const
+Matrix<T, W, H> Matrix<T, W, H>::operator*(Numeric_trait<T>::const_ref val) const
 {
     for (std::size_t i = 0; i < W; i++)
     {

@@ -20,5 +20,6 @@ public:
 
 };
 
+#include "Numeric_trait.hxx"
 
 #endif //LIBMAT_NUMERIC_TRAIT_H

@@ -15,6 +15,7 @@ public:
     T& at(unsigned int x, unsigned int y);
     const T& at(unsigned int x, unsigned int y) const;
     bool is_identity();
+    bool is_square();
     Matrix<T, H, W> transpose() const;
 
 

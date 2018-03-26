@@ -28,6 +28,12 @@ bool Matrix::is_identity()
 }
 
 template<typename T,unsigned int W, unsigned int H>
+bool Matrix::is_square()
+{
+    return W == H;
+}
+
+template<typename T,unsigned int W, unsigned int H>
 std::size_t Matrix<T, W, H>::to_single_coordinate(unsigned int x, unsigned int y) const
 {
     return y * W + x;

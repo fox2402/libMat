@@ -12,12 +12,14 @@ class Matrix
 public:
     Matrix();
 
-    T& at(unsigned int x, unsigned int y);
-    const T& at(unsigned int x, unsigned int y) const;
     bool is_identity();
     bool is_square();
-    Matrix<T, H, W> transpose() const;
 
+    Numeric_trait<T>::ref at(unsigned int x, unsigned int y);
+    Numeric_trait<T>::const_ref at(unsigned int x, unsigned int y) const;
+
+
+    Matrix<T, H, W> transpose() const;
 
     Matrix<T, W, H> operator*(Numeric_trait<T>::const_ref val) const;
     Matrix<T, W, H> operator+(const Matrix<T, W, H>& rhs) const;

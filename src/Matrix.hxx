@@ -12,7 +12,7 @@ Matrix::Matrix<T, W, H>()
 }
 
 template<typename T,unsigned int W, unsigned int H>
-bool Matrix::is_identity()
+bool Matrix<T, W, H>::is_identity()
 {
     for (std::size_t i = 0; i < W; i++)
     {
@@ -28,10 +28,17 @@ bool Matrix::is_identity()
 }
 
 template<typename T,unsigned int W, unsigned int H>
-bool Matrix::is_square()
+bool Matrix<T, W, H>::is_square()
 {
     return W == H;
 }
+
+template<typename T,unsigned int W, unsigned int H>
+Numeric_trait<T>::type Matrix<T, W, H>::determinant()
+{
+    Numeric_trait<T>::type t;
+    return t;
+};
 
 template<typename T,unsigned int W, unsigned int H>
 std::size_t Matrix<T, W, H>::to_single_coordinate(unsigned int x, unsigned int y) const

@@ -18,12 +18,12 @@ public:
     Numeric_trait<T>::ref at(unsigned int x, unsigned int y);
     Numeric_trait<T>::const_ref at(unsigned int x, unsigned int y) const;
 
+    Numeric_trait<T>::type determinant();
 
     Matrix<T, H, W> transpose() const;
 
     Matrix<T, W, H> operator*(Numeric_trait<T>::const_ref val) const;
     Matrix<T, W, H> operator+(const Matrix<T, W, H>& rhs) const;
-
 private:
 
     std::size_t to_single_coordinate(unsigned int x, unsigned int y) const;

@@ -8,7 +8,7 @@ template<typename T,unsigned int W, unsigned int H>
 Matrix::Matrix<T, W, H>()
 {
     for (std::size_t i = 0; i < W * H; i++)
-        buff_.push_back(Mat_trait<T>::null_value());
+        buff_.push_back(Numeric_trait<T>::null_val());
 }
 
 template<typename T,unsigned int W, unsigned int H>

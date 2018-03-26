@@ -2,7 +2,6 @@
 // Created by Hiryuu on 2/16/2018.
 //
 #include <vector>
-#include "matTrait/Mat_trait.h"
 #include "matTrait/Numeric_trait.h"
 
 #pragma once
